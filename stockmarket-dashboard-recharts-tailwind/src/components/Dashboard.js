@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from './Card'
-import { mockCompanyDetails } from '../constants/mock';
+import { mockCompanyDetails, mockStockQuote } from '../constants/mock';
 import Header from './Header';
 import Details from './Details';
+import Overview from './Overview';
 
 
 const Dashboard = () => {
@@ -15,7 +16,12 @@ const Dashboard = () => {
         <Card>Chart</Card>
       </div>
       <div>
-        <Card>Overview</Card>
+        <Overview 
+          symbol={mockCompanyDetails.ticker}
+          price={mockStockQuote.pc}
+          change={mockStockQuote.d}
+          changePercent={mockStockQuote.dp}
+          currency={mockCompanyDetails.currency}></Overview>
       </div>
       <div className='row-span-2 xl:row-span-3'>
         <Details details={mockCompanyDetails}></Details>
